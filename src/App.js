@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import StylingContext from './styling/context';
+import style from './styling/style';
+import MyComponent from "./MyComponent";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class FooBar extends Component {
+
+    render() {
+        return (
+            <MyComponent/>
+        )
+    }
 }
 
-export default App;
+export default class App extends Component {
+    render() {
+        return (
+            <div>
+                <StylingContext.Provider value={style}>
+                    <FooBar/>
+                </StylingContext.Provider>
+            </div>
+        )
+    }
+}
